@@ -27,9 +27,13 @@
    display: none;
 }
 
-#AddToCart {
+.stock-available {
   background-color: green;
   &:hover {
     background-color: blue;
   }
+}
+
+.stock-unavailable {
+  background-color: grey;
 }
