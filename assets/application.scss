@@ -26,3 +26,10 @@
 .hidden {
    display: none;
 }
+
+#AddToCart {
+  background-color: green;
+  &:hover {
+    background-color: blue;
+  }
+}
