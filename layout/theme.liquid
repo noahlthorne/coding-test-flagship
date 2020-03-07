@@ -10,6 +10,8 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.scss.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
 </head>
 <body>
 
@@ -40,5 +42,10 @@
   <main role="main">
     {{ content_for_layout }}
   </main>
+  <script>
+    function addItem(form) {
+      jQuery.post('/cart/add.js', $('form[action="/cart/add"]').serialize())
+    }
+  </script>
 </body>
 </html>
