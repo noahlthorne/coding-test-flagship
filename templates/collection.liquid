@@ -1,6 +1,7 @@
+{% assign products = collection.products | sort: 'title' %}
 {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
+  {% for product in products %}
     <div>
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
       {{ product.price | money }}
