@@ -42,7 +42,7 @@
   {{ current_variant.price | money }}
   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart" class="stock-{{stock_status}}" onclick="addItem('AddToCartForm'); return false;">
+  <button type="submit" name="add" id="AddToCart" class="stock-{{stock_status}}">
   <!--   if stock is between 0 and 5 change button to say "Low Stock" -->
   {% if stock > 0 and stock <= 5 %}
     Low Stock
