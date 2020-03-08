@@ -1,6 +1,8 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-{% assign stock = current_variant.inventory_quantity %}
+
+<!-- check if item is in stock and change the color of the button accordingly -->
+
 {% if current_variant.available %}
     {% assign stock_status = 'available' %}
   {% else %}
@@ -35,6 +37,7 @@
   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
   <button type="submit" name="add" id="AddToCart" class="stock-{{stock_status}}" onclick="addItem('AddToCartForm'); return false;">
+  <!--   if stock is between 0 and 5 change button to say "Low Stock" -->
   {% if stock > 0 and stock <= 5 %}
     Low Stock
   {% else %}
