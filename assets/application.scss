@@ -8,3 +8,12 @@
 .stock-unavailable {
   background-color: grey;
 }
+
+table {
+  & th {
+    padding: 4px;
+  }
+  & td {
+    padding: 4px;
+  }
+}

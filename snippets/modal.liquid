@@ -9,10 +9,44 @@
       </div>
       <div class="modal-body">
         Items in stock: {{ stock }}
+        <hr>
+        {% if cart.item_count > 0 %}
+          <h3>Your Cart</h3>
+          <form action="/cart" method="post" novalidate>
+          <table>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+            <tbody>
+              {% for item in cart.items %}
+              <tr>
+                <td>
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                </td>
+                <td>
+                  {{ item.original_line_price | money }}
+                </td>
+                <td>
+                  {{ item.quantity }}
+                </td>
+              </tr>
+               {% endfor %}
+             </tbody>
+           </table>
+           <div>
+             <p>Sub total : {{ cart.total_price | money }}</p>
+           </div>
+         </form>
+       {% else %}
+         <h2>cart</h2>
+         Cart is empty
+       {% endif %}
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
