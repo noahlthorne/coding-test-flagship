@@ -1,0 +1,26 @@
+{% for collection in collections %}
+  <ul>
+    <li>
+       <a href="{{ collection.url }}">{{ collection.title }}</a>
+    </li>
+  </ul>
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Collection Selector",
+    "settings": [
+    {
+      "type": "collection",
+      "id": "select_collection",
+      "label": "collection"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
