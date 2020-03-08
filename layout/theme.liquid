@@ -44,10 +44,14 @@
   <main role="main">
     {{ content_for_layout }}
   </main>
+
+  <!-- add item to cart without redirecting to cart page -->
+
   <script>
-    function addItem(form) {
+    $('#AddToCartForm').on('submit', function() {
       jQuery.post('/cart/add.js', $('form[action="/cart/add"]').serialize())
-    }
+      return false;
+    })
   </script>
 
   {% if template == 'product' %}
